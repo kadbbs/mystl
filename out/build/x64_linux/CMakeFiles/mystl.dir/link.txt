@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/mystl.dir/main.cpp.o  -o mystl 
