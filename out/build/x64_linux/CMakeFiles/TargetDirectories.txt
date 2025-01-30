@@ -1,3 +1,0 @@
-/home/kad/code/mystl/out/build/x64_linux/CMakeFiles/rebuild_cache.dir
-/home/kad/code/mystl/out/build/x64_linux/CMakeFiles/edit_cache.dir
-/home/kad/code/mystl/out/build/x64_linux/CMakeFiles/mystl.dir
