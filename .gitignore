@@ -1,0 +1,6 @@
+/out/build/
+*.o
+*.exe
+*.log
+haha
+.vscode
