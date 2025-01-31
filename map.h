@@ -2,7 +2,7 @@
 #define MAP_H
 #include <iostream>
 #include <vector>
-#include <list>
+#include "list.h"
 #include <iterator>
 #include <utility>  // for std::pair
 
@@ -13,7 +13,7 @@ namespace kad {
     class map {
     private:
         // 哈希表每个桶存储一对键值对
-        std::vector<std::list<std::pair<Key, T>>> table;
+        std::vector<list<std::pair<Key, T>>> table;
         size_t num_elements;
         size_t bucket_count;
 

@@ -6,7 +6,7 @@
 - [X] string
 - [X] vector
 - [ ] queue
-- [ ] list
+- [X] list
 - [ ] map
 - [ ] unordered_map
 - [ ] stack

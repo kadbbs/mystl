@@ -1,28 +1,27 @@
 #include <iostream>
-#include "allocator.h"  // 包含自定义 allocator
-
+#include <list>
+#include <vector>
+#include <stdexcept>
+#include "unordered_map.h"
+#include <unordered_map>
 int main()
 {
-    kad::allocator<int> alloc;
+    kad::unordered_map<std::string, int> umap;
 
-    // 分配内存
-    int* p = alloc.allocate(3);
+    // 插入元素
+    umap.insert("apple", 1);
+    umap.insert("banana", 2);
+    umap.insert("orange", 3);
 
-    // 使用 construct 构造对象
-    alloc.construct(p, 10);          // 在 p 指向的内存位置构造一个值为 10 的 int
-    alloc.construct(p + 1, 20);      // 在 p + 1 指向的内存位置构造一个值为 20 的 int
-    alloc.construct(p + 2, 30);      // 在 p + 2 指向的内存位置构造一个值为 30 的 int
+    // 查找元素
+    std::cout << "apple: " << umap.at("apple") << std::endl;
+    std::cout << "banana: " << umap.at("banana") << std::endl;
 
-    // 输出构造的值
-    std::cout << p[0] << " " << p[1] << " " << p[2] << std::endl;  // 输出 10 20 30
+    // 判断元素是否存在
+    std::cout << "Contains 'grape': " << umap.contains("grape") << std::endl;
 
-    // 销毁对象
-    alloc.destroy(p);
-    alloc.destroy(p + 1);
-    alloc.destroy(p + 2);
-
-    // 释放内存
-    alloc.deallocate(p, 3);
+    // 输出哈希表内容
+    umap.print();
 
     return 0;
 }
