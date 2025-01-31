@@ -2,13 +2,13 @@
 > 一个简易的拙略的模仿，仅仅用来增加对STL的熟练度
 
 ## worked
-- [ ] allocator
+- [X] allocator
 - [X] string
 - [X] vector
 - [ ] queue
 - [X] list
-- [ ] map
-- [ ] unordered_map
+- [X] map
+- [X] unordered_map
 - [ ] stack
 
 ## string
