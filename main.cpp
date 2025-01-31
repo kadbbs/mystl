@@ -1,58 +1,28 @@
-#include "vector.h"
-#include "string.h"
-#include <algorithm>
 #include <iostream>
+#include "allocator.h"  // 包含自定义 allocator
 
-// #include <bits/stdc++.h>
-#include "haha"
-using namespace kad;
-
-#define cout std::cout
-#define cin std::cin
-#define endl std::endl
-
-int main(int argc, char const *argv[])
+int main()
 {
-#if 0 // 测试vector
-    srand(unsigned(time(NULL)));
-    vector<int> a;
-    for(int i = 0; i < 20; i++) {
-        a.push_back(rand() % 100);
-    }
+    kad::allocator<int> alloc;
 
-    for(auto i : a) {
-        std::cout << i << " ";
-    }
+    // 分配内存
+    int* p = alloc.allocate(3);
 
-    std::cout << std::endl;
-    std::sort(a.begin(), a.end());
-    for(auto i : a) {
-        std::cout << i << " ";
-    }
+    // 使用 construct 构造对象
+    alloc.construct(p, 10);          // 在 p 指向的内存位置构造一个值为 10 的 int
+    alloc.construct(p + 1, 20);      // 在 p + 1 指向的内存位置构造一个值为 20 的 int
+    alloc.construct(p + 2, 30);      // 在 p + 2 指向的内存位置构造一个值为 30 的 int
 
-    std::cout << std::endl;
-#endif
+    // 输出构造的值
+    std::cout << p[0] << " " << p[1] << " " << p[2] << std::endl;  // 输出 10 20 30
 
-#if 1
-    string a;
-    cin >> a;
-    cout << a << endl;
-    a.append("12345");
-    a = a + "q";
-    a += "gggg";
-    cout << a << endl;
-    a.back() = 'K';
-    a.front() = 'A';
-    cout << a << endl;
-    std::sort(a.begin(), a.end());
-    cout << a << endl;
+    // 销毁对象
+    alloc.destroy(p);
+    alloc.destroy(p + 1);
+    alloc.destroy(p + 2);
 
-    for(auto i:a){
-        cout<<i;
-    }
-    cout<<endl;
-
-#endif
+    // 释放内存
+    alloc.deallocate(p, 3);
 
     return 0;
 }

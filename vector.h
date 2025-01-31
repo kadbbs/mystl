@@ -27,6 +27,8 @@ namespace kad
     public:
         vector(/* args */);
         vector(size_type n);
+        vector(vector &vec);
+        vector(vector &&vec);
         vector(size_type n, T val);
         ~vector();
 
@@ -48,6 +50,14 @@ namespace kad
         T &operator[](size_t i)
         {
             return *(data_ + i);
+        }
+        T &operator=(vector &vec)
+        {
+            if(vec.data_==data){
+                return *this;
+            }
+
+            vector<>
         }
     };
 
